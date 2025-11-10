@@ -9,6 +9,8 @@ class _ENVS(BaseModel):
     RUN_MODE: schemas.RunModeSchema = schemas.RunModeSchema()  # type: ignore
     UVICORN: schemas.UvicornSchema = schemas.UvicornSchema()  # type: ignore
     FASTAPI: schemas.FastAPISchema = schemas.FastAPISchema()  # type: ignore
+    VALIDATION: schemas.ValidationSchema = schemas.ValidationSchema()  # type: ignore
+    POSTGRESQL: schemas.PostgresqlSchema = schemas.PostgresqlSchema()  # type: ignore
 
 
 @lru_cache
