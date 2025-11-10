@@ -11,6 +11,7 @@ class _ENVS(BaseModel):
     FASTAPI: schemas.FastAPISchema = schemas.FastAPISchema()  # type: ignore
     VALIDATION: schemas.ValidationSchema = schemas.ValidationSchema()  # type: ignore
     POSTGRESQL: schemas.PostgresqlSchema = schemas.PostgresqlSchema()  # type: ignore
+    HTTPX: schemas.HTTPXSchema = schemas.HTTPXSchema()  # type: ignore
 
 
 @lru_cache
