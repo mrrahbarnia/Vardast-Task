@@ -9,7 +9,7 @@
 - Validates files and stores content in the database  
 
 **Vector Storage:**  
-- Uses the `pgvector` extension in PostgreSQL to store **1536-dimensional embeddings**  
+- Uses the `pgvector` extension in PostgreSQL to store **32-dimensional embeddings**  
 - Long documents are **chunked** to improve semantic search relevance and reduce noise  
 
 **Embedding:**  
