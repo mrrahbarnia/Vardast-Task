@@ -37,10 +37,7 @@ async def ingest_data(
     )
 
 
-@router.post(
-    "/ask",
-    status_code=status.HTTP_200_OK,
-)
+@router.post("/ask", status_code=status.HTTP_200_OK, response_model=AppResponse[str])
 async def ask(
     payload: AskIn,
     filter_query: Annotated[AskFilterQuery, Query()],
@@ -48,8 +45,13 @@ async def ask(
         async_sessionmaker[AsyncSession], Depends(get_session_maker)
     ],
     repo: Annotated[PostgresRepository, Depends(get_repo)],
-):
+) -> AppResponse[str]:
     response = await Service(repository=repo, session_maker=session_maker).ask(
         dto=payload, filter_query=filter_query
     )
-    return response
+    return AppResponse[str](
+        success=True,
+        status_code=status.HTTP_200_OK,
+        message="Answer fetched successfully.",
+        data=response,
+    )
