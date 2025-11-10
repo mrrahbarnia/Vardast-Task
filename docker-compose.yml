@@ -1,0 +1,13 @@
+services:
+  app:
+    env_file:
+      - "${ENV_FILE_NAME}"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      ENV_FILE_NAME: "${ENV_FILE_NAME}"
+    volumes:
+      - .:/app
+    ports:
+      - "${UVICORN__PORT}:${UVICORN__PORT}"
