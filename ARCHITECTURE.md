@@ -9,12 +9,16 @@
 - Validates files and stores content in the database  
 
 **Vector Storage:**  
-- Uses the `pgvector` extension in PostgreSQL to store **32-dimensional embeddings**  
+- Uses the `pgvector` extension in PostgreSQL to store **1536-dimensional embeddings**  
 - Long documents are **chunked** to improve semantic search relevance and reduce noise  
 
 **Embedding:**  
 - `mock_embed` function simulates embeddings (SHA256 → vector)  
 - In production, OpenAI embeddings or another LLM would be used  
+
+**Sample Documents:**  
+- Some sample files are included in the `sample_docs/` directory  
+- You can upload these files to the `/ingest` endpoint to test the system  
 
 ---
 
@@ -33,6 +37,11 @@
 **Response Generation:**  
 - Uses `mock_generate_answer` to simulate LLM output  
 - Combines context from multiple chunks for coherent answers  
+
+**Example Questions:**  
+- `What is the current time in UTC?`  
+- `Convert USD to EUR`  
+- `Tell me about PostgreSQL`  
 
 ---
 
